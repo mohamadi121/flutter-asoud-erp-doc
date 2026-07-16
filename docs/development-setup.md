@@ -1,5 +1,22 @@
 # راه‌اندازی توسعه
 
+پس از نصب یا ارتقای افزونه حتماً migration اجرا شود تا DocType مربوط به setup شرکت همگام گردد:
+
+```bash
+bench --site asoud.localhost migrate
+```
+
+در اولین اجرای Flutter، برنامه `get_setup_status` را فراخوانی می‌کند و کاربر را به نخستین مرحله ناقص
+می‌برد. کاربر API باید دست‌کم مجوز خواندن setup و برای انجام راه‌اندازی نقش `System Manager` یا
+`Accounts Manager` داشته باشد.
+
+تست یکپارچه setup پس از نصب ERPNext و افزونه روی سایت آزمایشی اجرا می‌شود:
+
+```bash
+bench --site asoud.localhost run-tests --app asoud_erp \
+  --module asoud_erp.asoud_erp.doctype.asoud_company_setup.test_asoud_company_setup
+```
+
 ## Backend
 
 پیش‌نیاز: Frappe Bench سازگار با ERPNext.
