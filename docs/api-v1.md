@@ -192,3 +192,26 @@ POST /api/method/asoud_erp.api.v1.voucher.reject_voucher
 تأیید فقط برای `Accounts Manager` و `System Manager` مجاز است. هنگام تأیید،
 Backend یک `Journal Entry` استاندارد ERPNext می‌سازد و Submit می‌کند. سند ردشده
 دلیل اجباری دارد و پس از اصلاح می‌تواند دوباره برای تأیید ارسال شود.
+
+## گزارش‌های حسابداری
+
+### تراز آزمایشی
+
+```text
+GET /api/method/asoud_erp.api.v1.report.trial_balance
+```
+
+پارامترها: `company`، `from_date`، `to_date` و `account` اختیاری. پاسخ برای هر
+حساب، مانده افتتاحیه بدهکار/بستانکار، گردش دوره و مانده پایان دوره را جداگانه
+برمی‌گرداند. جمع ستون‌ها از مجموع حساب‌ها محاسبه می‌شود، نه از خالص مانده‌ها.
+
+### دفتر کل و معین
+
+```text
+GET /api/method/asoud_erp.api.v1.report.general_ledger
+```
+
+پارامترهای الزامی `company`، `from_date`، `to_date` و `account` هستند. برای دفتر
+معین می‌توان `party_type` و `party` را نیز ارسال کرد. پاسخ شامل مانده افتتاحیه،
+ردیف‌های `GL Entry` با مانده تجمعی، جمع بدهکار، جمع بستانکار و مانده نهایی است.
+اسناد لغوشده در هیچ‌یک از گزارش‌ها محاسبه نمی‌شوند.
