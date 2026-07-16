@@ -52,6 +52,26 @@ Body:
 
 ## تفصیلی شناور
 
+## گروه‌های تفصیلی
+
+### دریافت گروه‌ها
+
+```text
+GET /api/method/asoud_erp.api.v1.detail_group.list_detail_groups
+```
+
+گروه‌های پایه شامل مشتریان `10000`، تأمین‌کنندگان `20000`، پرسنل `30000`،
+بانک‌ها `40000`، صندوق‌ها `50000`، مراکز هزینه `60000`، پروژه‌ها `70000`
+و سایر `90000` هستند.
+
+### اتصال حساب معین به گروه تفصیلی
+
+```text
+POST /api/method/asoud_erp.api.v1.detail_group.save_account_mapping
+```
+
+پارامترها: `company`، `account` و `detail_group`.
+
 ## کد سرفصل‌ها
 
 ### دریافت سرفصل‌های شرکت
@@ -114,3 +134,25 @@ POST /api/method/asoud_erp.api.v1.floating_detail.disable_floating_detail
 ```
 
 API حذف فیزیکی برای تفصیلی دارای گردش مالی ارائه نمی‌شود.
+
+## اشخاص و طرف‌حساب‌ها
+
+### فهرست و جست‌وجو
+
+```text
+GET /api/method/asoud_erp.api.v1.party.list_parties
+```
+
+### ایجاد یا ویرایش
+
+```text
+POST /api/method/asoud_erp.api.v1.party.save_party
+```
+
+`party_type` یکی از `Individual` یا `Organization` است. فیلد `roles` آرایه‌ای
+از نقش‌های Customer، Supplier، Employee، Shareholder یا Other است. نقش‌های
+Customer و Supplier پس از اعتبارسنجی با اسناد متناظر ERPNext همگام می‌شوند.
+برای نقش‌های مشتری، تأمین‌کننده و پرسنل، تفصیلی مرتبط در گروه ثابت همان نقش
+به‌صورت خودکار ساخته و به پروفایل واحد شخص متصل می‌شود.
+نقش Employee تا زمان تکمیل شرکت، تاریخ استخدام و اطلاعات منابع انسانی فقط در
+پروفایل ASOUD نگهداری می‌شود و Employee ناقص ساخته نمی‌شود.

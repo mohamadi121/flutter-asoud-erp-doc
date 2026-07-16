@@ -8,8 +8,10 @@
 |---|---|
 | `flutter-asoud-erp` | اپ موبایل Flutter، رابط کاربری و BLoC |
 | `flutter-asoud-erp-doc` | مستندات محصول، معماری و API |
-| `frappe-erp-next-1` | کد اصلی ERPNext؛ بدون تغییر مستقیم تا حد ممکن |
 | `frappe-erp-next-2` | افزونه اختصاصی ASOUD روی Frappe |
+
+سورس ERPNext جزو مخازن اختصاصی ASOUD نیست و هنگام استقرار از مخزن رسمی با
+شاخه `version-15` توسط Bench دریافت می‌شود.
 
 ## تصمیم‌های قطعی
 
