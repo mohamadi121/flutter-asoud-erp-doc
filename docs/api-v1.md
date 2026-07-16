@@ -156,3 +156,39 @@ Customer و Supplier پس از اعتبارسنجی با اسناد متناظر
 به‌صورت خودکار ساخته و به پروفایل واحد شخص متصل می‌شود.
 نقش Employee تا زمان تکمیل شرکت، تاریخ استخدام و اطلاعات منابع انسانی فقط در
 پروفایل ASOUD نگهداری می‌شود و Employee ناقص ساخته نمی‌شود.
+
+## اسناد حسابداری
+
+### فهرست اسناد
+
+```text
+GET /api/method/asoud_erp.api.v1.voucher.list_vouchers
+```
+
+پارامتر الزامی `company` است. فیلترهای اختیاری `status` و `search` هستند.
+
+### ایجاد یا ویرایش پیش‌نویس
+
+```text
+POST /api/method/asoud_erp.api.v1.voucher.save_voucher
+```
+
+هر ردیف دقیقاً باید یکی از مقادیر بدهکار یا بستانکار را داشته باشد. حداقل دو
+ردیف لازم است و جمع بدهکار و بستانکار باید برابر و بزرگ‌تر از صفر باشد.
+
+### ارسال برای تأیید
+
+```text
+POST /api/method/asoud_erp.api.v1.voucher.submit_for_approval
+```
+
+### تأیید یا رد
+
+```text
+POST /api/method/asoud_erp.api.v1.voucher.approve_voucher
+POST /api/method/asoud_erp.api.v1.voucher.reject_voucher
+```
+
+تأیید فقط برای `Accounts Manager` و `System Manager` مجاز است. هنگام تأیید،
+Backend یک `Journal Entry` استاندارد ERPNext می‌سازد و Submit می‌کند. سند ردشده
+دلیل اجباری دارد و پس از اصلاح می‌تواند دوباره برای تأیید ارسال شود.
