@@ -54,6 +54,15 @@ Body:
 
 ## کد سرفصل‌ها
 
+### دریافت سرفصل‌های شرکت
+
+```text
+GET /api/method/asoud_erp.api.v1.account.list_accounts
+```
+
+پارامتر الزامی: `company`. پاسخ بر اساس کد حساب مرتب است و فیلد
+`asoud_level` را برای نگاشت گروه، کل و معین در Flutter برمی‌گرداند.
+
 ### پیش‌نمایش کد بعدی
 
 ```text
@@ -69,6 +78,9 @@ POST /api/method/asoud_erp.api.v1.account.create_account
 ```
 
 Backend کد نهایی را تولید می‌کند؛ Flutter فقط الگو و حساب والد را ارسال می‌کند.
+
+تفصیلی شناور از DocType و API اختصاصی خودش استفاده می‌کند و به‌عنوان یک حساب
+ERPNext زیر حساب معین ساخته نمی‌شود.
 
 
 ### فهرست
