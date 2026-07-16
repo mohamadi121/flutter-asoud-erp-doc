@@ -13,7 +13,8 @@ bench --site asoud.localhost migrate
 تست یکپارچه setup پس از نصب ERPNext و افزونه روی سایت آزمایشی اجرا می‌شود:
 
 ```bash
-bench --site asoud.localhost run-tests --app asoud_erp --doctype "ASOUD Company Setup"
+bench --site asoud.localhost run-tests --app asoud_erp \
+  --module asoud_erp.asoud_erp.doctype.asoud_company_setup.test_asoud_company_setup
 ```
 
 ## Backend
