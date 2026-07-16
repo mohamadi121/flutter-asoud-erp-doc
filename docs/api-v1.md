@@ -6,6 +6,33 @@ Base path:
 /api/method/asoud_erp.api.v1
 ```
 
+## راه‌اندازی اولیه شرکت
+
+اطلاعات راه‌اندازی هر شرکت در `ASOUD Company Setup` و به‌صورت company-scoped نگهداری می‌شود.
+نقش‌های فعال دفتر تنظیمات کسب‌وکار هستند و مجوز یا Role کاربران Frappe را تغییر نمی‌دهند.
+
+```text
+GET  /api/method/asoud_erp.api.v1.setup.get_setup_status
+POST /api/method/asoud_erp.api.v1.setup.save_office
+GET  /api/method/asoud_erp.api.v1.setup.get_company_settings
+POST /api/method/asoud_erp.api.v1.setup.update_company_settings
+GET  /api/method/asoud_erp.api.v1.setup.get_enabled_roles
+POST /api/method/asoud_erp.api.v1.setup.update_enabled_roles
+```
+
+`get_setup_status` در صورت ارسال `company` وضعیت همان شرکت و در غیر این صورت آخرین setup قابل دسترس
+را برمی‌گرداند. پاسخ شامل `office_saved`، `accounting_saved`، `roles_saved` و `complete` است.
+
+`save_office` یک Company استاندارد با ارز ذخیره‌سازی `IRR` ایجاد می‌کند و نوع دفتر، شناسه ملی و
+کد اقتصادی را در setup همان شرکت نگه می‌دارد. ایجاد Company هم‌نام مجاز نیست.
+
+`update_company_settings` مقادیر `display_currency`، `fiscal_year_start_month`، `chart_template` و
+`auto_generate_detail_code` را می‌پذیرد. این API فقط انتخاب الگوی سرفصل را ذخیره می‌کند و به‌تنهایی
+ادعای ساخت درخت حساب‌ها ندارد.
+
+`update_enabled_roles` آرایه نقش‌های فعال دفتر را می‌پذیرد و همیشه `System Manager` را در تنظیمات
+فعال نگه می‌دارد؛ این عملیات هیچ Roleای را به User تخصیص نمی‌دهد.
+
 ## پاسخ استاندارد
 
 ```json

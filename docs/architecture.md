@@ -27,6 +27,10 @@ flowchart TD
 - `doctype`: مدل‌های اختصاصی ASOUD
 - ERPNext DocTypes: Company، Account، Journal Entry و سایر مدل‌های استاندارد
 
+تنظیمات راه‌اندازی وابسته به شرکت در DocType مستقل `ASOUD Company Setup` ذخیره می‌شود. این مدل با
+Link یکتای Company، مراحل ذخیره دفتر، تنظیمات حسابداری و نقش‌های فعال دفتر را نگه می‌دارد. تنظیمات
+سراسری تولید کد در `ASOUD Settings` باقی می‌مانند و داده‌های company-scoped وارد Singleton نمی‌شوند.
+
 پروفایل `ASOUD Party Profile` هویت واحد شخص را نگه می‌دارد. نقش‌های مشتری و
 تأمین‌کننده به DocTypeهای استاندارد ERPNext متصل می‌شوند و تفصیلی‌های مرتبط
 بدون تکثیر هویت شخص تولید می‌شوند.
