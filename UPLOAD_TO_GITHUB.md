@@ -1,14 +1,11 @@
-# بارگذاری دستی در GitHub
+# انتشار
 
-1. مخزن `mohamadi121/flutter-asoud-erp-doc` را باز کنید.
-2. گزینه `Add file` و سپس `Upload files` را بزنید.
-3. محتوای این بسته را از حالت ZIP خارج کنید.
-4. پوشه‌ها و فایل‌ها را داخل صفحه Upload بکشید.
-5. پیام Commit پیشنهادی:
+انتشار دستی ZIP منسوخ شده است. تغییرات این مخزن باید با Git، پس از بازبینی و تست پیوندها، commit و روی شاخه تعیین‌شده push شوند.
 
-   `docs: add base setup design checkpoint 01`
-
-6. روی `Commit changes` بزنید.
-
-بهتر است خود فایل ZIP را به‌تنهایی داخل مخزن نگذارید؛ محتویات آن را استخراج و Upload کنید تا فایل‌های مستندات مستقیماً قابل مشاهده باشند.
-
+```bash
+git status
+git diff --check
+git add README.md CHANGELOG.md docs
+git commit -m "docs: align architecture and API contracts"
+git push origin main
+```
